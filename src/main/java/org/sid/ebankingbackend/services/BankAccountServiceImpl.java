@@ -195,6 +195,7 @@ public class BankAccountServiceImpl implements BankAccountService {
         if(bankAccount==null){
             throw new BankAccountNotFoundException(("Account not found"));
         }
+
         Page<AccountOperation> accountOperations = accountOperationRepository.findByBankAccount_IdOrderByOperationDateDesc(accountId, PageRequest.of(page, size));
 
         AccountHistoryDTO accountHistoryDTO=new AccountHistoryDTO();
